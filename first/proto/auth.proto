@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+service Auth {
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+}
+
+message RegisterRequest {
+  string login = 1;
+  string password = 2;
+}
+
+message MyType {
+  string status = 1;
+  string error = 2;
+}
+
+message RegisterResponse {
+  bool success = 1;
+  string error = 2;
+  MyType result = 3;
+}
+
+message LoginRequest {
+  string login = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  bool success = 1;
+  string token = 2;
+  string error = 3;
+}
